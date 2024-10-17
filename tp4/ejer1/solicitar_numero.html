@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Adivinanza</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .alto{
+            color: green;
+            text-align: center;
+        }
+        .bajo{
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h1 class="text-center text-primary mb-4">¡Adivina el Número!</h1>
+
+                <p class="text-center">Introduce un número entre <strong>1 y 1000</strong> y trata de adivinar el número secreto.</p>
+
+                <div class="row justify-content-center mb-4">
+                    <div class="col-md-6">
+                        <div>
+                            <input type="number" id="entrada" class="form-control mb-3" min="1" max="1000" placeholder="Ingresa un número" required>
+                        </div>
+                        <div id="masomenos"></div>
+                        <div>
+                            <button id="enviar" class="btn btn-success btn-block" onclick="comparar_numeros()">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div id="texto" class="alert alert-info text-center" style="display: none;"></div>
+
+                <div class="row justify-content-center stats mt-4">
+                    <div class="col-md-6">
+                        <div class="alert alert-secondary">
+                            <strong id="mejorP"></strong><br>
+                            <strong id="intentosDisplay"></strong><br>
+                            <strong id="partidas_finalizada"></strong><br>
+                            <strong id="totalIntentos"></strong><br>
+                            <strong id="resultadoFinal"></strong>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <button class="btn btn-warning btn-block mb-2" onclick="reiniciar_partida()">Reiniciar Partida Actual</button>
+                        <button class="btn btn-danger btn-block" onclick="resetear()">Resetear Juego</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js_solicitar_numero.js"></script>
+</body>
+
+</html>
