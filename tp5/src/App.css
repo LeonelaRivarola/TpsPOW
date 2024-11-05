@@ -1,0 +1,34 @@
+
+.titulo{
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom:5%;
+}
+.bloque{
+  margin-top: 5%;
+}
+/*NOTICIAS*/
+.ver_noticia{
+  margin-top:2%;
+  margin-bottom: 2%;
+}
+/*CARGA*/
+.bloqueCarga{
+  margin: 3% 0%;
+}
+
+.textos{
+  width: 50%;
+}
+
+/*NAVEGACION*/
+.busqueda{
+  width: 30%;
+}
+.navegacion{
+  width: 70%;
+}
+
+.itemNav{
+  margin-right: 2%;
+}
