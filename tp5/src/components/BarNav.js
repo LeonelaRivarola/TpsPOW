@@ -15,7 +15,6 @@ function BarNav() {
   const manejoSubmit = async (event) => {
     event.preventDefault();
     const data = await buscaNoticia(setBuscar);
-    console.log(data);
     navegar('/Noticias', {
       state: { data }
     })
@@ -23,22 +22,27 @@ function BarNav() {
 
   return (
     <div>
-      <nav className="navbar bg-body-tertiary">
+      <nav className="navbar nav">
       <div className="container-sm">
         <div className="navegacion row"> 
-          <div className="itemNav col-auto"><Link to="/">Home</Link></div>
-          <div className="itemNav col-auto"><Link to="/Cargar">Cargar</Link></div>
+          <div className="itemNav col-auto bg-light bg-gradient rounded-pill p-2"><Link className="link-dark link-underline-opacity-0" to="/">Home</Link></div>
+          <div className="itemNav col-auto bg-light bg-gradient rounded-pill p-2"><Link className="link-dark link-underline-opacity-0" to="/Cargar">Cargar</Link></div>
         </div>
         <div className="busqueda">
         <form className="d-flex" role="search" onSubmit={manejoSubmit}>
           <input className="form-control me-2" type="search" placeholder="titulo" aria-label="Search" onChange={cambisImput} />
-          <button className="btn btn-outline-success" type="submit">Search</button>
+          <button className="btn btn-light" type="submit">Buscar</button>
         </form>
         </div>
       </div>
     </nav>
     </div>
   );
+  /**
+   * Si se clickea home va a el listado de las noticias
+   * si se clicka carga va a la pagian de carga 
+   * Si se ooprime el boton buscar se activa el onSubmit y se va a la ocnstante definida en esta funcion, que va a derivar a la pestaña de noticias.js
+   */
 }
 
 async function buscaNoticia(titulo) {

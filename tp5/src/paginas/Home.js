@@ -4,6 +4,7 @@ import List from '../components/List'
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 function Home(){
     const [noticias, setNoticia] = useState([]);
     const navegar= useNavigate();
@@ -13,7 +14,7 @@ function Home(){
     }, []);
 
     const fetchNoticia = async () => {
-        const url = 'http://localhost/api/noticias.php?inicio=0&fin=60';
+        const url = 'http://localhost/tps/git/TpsPOW/api/noticias.php?inicio=0&fin=60';
         try {
             const response = await fetch(url);// hago la llamada ala base de dato
             if (!response.ok) {
@@ -42,10 +43,35 @@ function Home(){
     }
 
    
+    // ELIMINAR EN LA BASE DE DATOS
+    const eliminarNoticia = async (noticia) => {
+
+        console.log(noticia.id_noticia);
+        try {
+            const response = await fetch('http://localhost/api/delete.php', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    id_noticia: noticia.id_noticia
+                })
+            })
+            if (!response.ok) {
+                throw new Error('Network response was not ok, in update');
+            }
+
+            const updatedNoticias = noticias.filter((x) => x.id_noticia !== noticia.id_noticia);
+            setNoticia(updatedNoticias);
+           
+        } catch (error) {
+            alert(error);
+        }
+    }
     
 
     return (
-        <List noticias={noticias} verNoticia={verNoticia}  />
+        <List noticias={noticias} verNoticia={verNoticia}  eliminarNoticia={eliminarNoticia}/>
         )
 }
 

@@ -6,7 +6,7 @@ const Detail = ({ noticia, editarNoticia, eliminarNoticia }) => {
             <div className="card mb-3" key={noticia[0].id_noticia}>
                 <div className="row g-0">
                     <div className='col-md-4 '>
-                        <img src={`http://localhost/tps/tp5/src/imagenes_subidas/${noticia[0].imagen}.jpg`} className="card-img-top" alt={noticia[0].titulo} />
+                        <img src={`http://localhost/tps/git/TpsPOW/tp5/src/imagenes_subidas/${noticia[0].imagen}.jpg`} className="card-img-top" alt={noticia[0].titulo} />
                     </div>
 
                     <div className='col-md-8'>

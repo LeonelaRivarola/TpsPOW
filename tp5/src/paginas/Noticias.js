@@ -11,9 +11,9 @@ function Noticias() {
     const navegar=useNavigate();
     const location = useLocation();
     const { data } = location.state || {};
-    console.log(data);
+
     //const [noticias, setNoticia] = useState([]);
-    const [selectedNoticia, setSelectedNoticia] = useState(data);
+    const [selectedNoticia, setSelectedNoticia] = useState(data || null);
   
     useEffect(() => {
         setSelectedNoticia(selectedNoticia);
@@ -22,7 +22,7 @@ function Noticias() {
     //VER NOTICIAS
 
     const editarNoticia = async (noticia) => {
-        const url = `http://localhost/api/ver_noticia.php?id_noticia=${noticia.id_noticia}`
+        const url = `http://localhost/tps/git/TpsPOW/api/ver_noticia.php?id_noticia=${noticia.id_noticia}`
         try {
             const response = await fetch(url);// hago la llamada ala base de dato
             const data = await response.json();//trnaformo la respuesta en json 
@@ -67,7 +67,19 @@ function Noticias() {
     //_------------------------------------------------------------
     return (
         <>
-            <Detail noticia={selectedNoticia} editarNoticia={editarNoticia} eliminarNoticia={eliminarNoticia} />
+        {selectedNoticia ?(
+            <div className='bloque'>
+                <Detail noticia={selectedNoticia} editarNoticia={editarNoticia} eliminarNoticia={eliminarNoticia} />
+            </div>
+            ):(
+                <div className='bloque'>
+                    <p className='text-center mt-5'>No hay ninguna noticia con ese nombre</p>
+                </div>
+                
+            )
+
+        }
+            
         </>
     )
 }

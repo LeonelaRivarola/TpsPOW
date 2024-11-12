@@ -4,8 +4,14 @@
   margin-top: 5%;
   margin-bottom:5%;
 }
-.bloque{
-  margin-top: 5%;
+
+
+footer{
+  background-color: rgb(35, 192, 253);
+}
+
+.nav{
+  background-color: rgb(35, 192, 253);
 }
 /*NOTICIAS*/
 .ver_noticia{
@@ -21,6 +27,19 @@
   width: 50%;
 }
 
+#guardado{
+  display: grid;
+  height: 400px;
+  justify-items: center;
+  align-content: center;
+
+  background: linear-gradient(rgb(150, 253, 150),white);
+}
+
+.imagenGuardar{
+  width: 200px;
+  height: 200px;
+}
 /*NAVEGACION*/
 .busqueda{
   width: 30%;
@@ -31,4 +50,8 @@
 
 .itemNav{
   margin-right: 2%;
+}
+
+.bloque{/*Tamaño minimo del bloque de contenido */
+  min-height: 400px;
 }
